@@ -1,0 +1,206 @@
+function lecture_01() {
+  const form = document.querySelector("form");
+  const Display = (BMI) => {
+    const result = document.querySelector(".result");
+    let group;
+    if (BMI >= 30.0) {
+      group = "중등도 비만";
+    } else if (BMI >= 25.0) {
+      group = "경도 비만";
+    } else if (BMI >= 23.0) {
+      group = "과체중";
+    } else if (BMI >= 18.5) {
+      group = "정상";
+    } else {
+      group = "저체중";
+    }
+    result.innerText = `당신의 BMI는 ${BMI}이며 ${group}에 속해있습니다.`;
+  };
+  const Cal = (Weight, Height) => {
+    //BMI 체질량 지수 계산 방법은 체중 (kg) / [키(m)*키(m)]
+    return Weight / (Height * Height);
+  };
+
+  const formHandler = (event) => {
+    event.preventDefault();
+    const Height_input = document.querySelector("#height");
+    const Weight_input = document.querySelector("#weight");
+
+    if (Weight_input.value !== "" && Height_input.value !== "") {
+      const Weight = Weight_input.value;
+      const Height = Height_input.value / 100;
+      const BMI = Cal(Weight, Height).toFixed(1);
+      //toFixed(digits) : 숫자를 소수점 이하 digits 자릿수까지 반올림하여 문자열로 반환
+      //toPrecision(digits) : 숫자를 전체 자릿수 digits로 반올림하여 문자열로 반환
+      Display(BMI);
+      Weight_input.value = ""; // 값을 비워준다.
+      Height_input.value = "";
+    }
+  };
+
+  form.addEventListener("submit", formHandler);
+}
+function lecture_02() {
+  const hour = document.querySelector(".hour");
+  const min = document.querySelector(".min");
+  const sec = document.querySelector(".sec");
+  function clock() {
+    const now = new Date();
+    hour.innerText = String(now.getHours()).padStart(2, "0");
+    min.innerText = String(now.getMinutes()).padStart(2, "0");
+    sec.innerText = String(now.getSeconds()).padStart(2, "0");
+  }
+  //무한반복 해주는 함수
+  setInterval(clock, 1000);
+  clock(); // 한번더 불러야 0000표시가 안나옴
+
+  //** stopWatch **//
+
+  const startBtn = document.querySelector(".start");
+  const stopBtn = document.querySelector(".stop");
+  const clearBtn = document.querySelector(".reset");
+
+  let timerId;
+  let [Msec, Sec, Min] = [0, 0, 0]; // 구조분해 할당
+
+  const displaytimer = () => {
+    const Time = document.querySelector(".Time");
+    // 템플릿 리터럴
+    const Fmin = Min < 10 ? `0${Min}` : Min;
+    const Fsec = Sec < 10 ? `0${Sec}` : Sec;
+    const Fmsec = Msec < 10 ? `0${Msec}` : Msec;
+
+    Time.innerText = `${Fmin} : ${Fsec} : ${Fmsec}`;
+  };
+  const timer = () => {
+    Msec++; // 0.01초씩 증가 100이 되면 1초가 되고 101이 되면 2초
+    if (Msec == 100) {
+      Msec = 0;
+      Sec++;
+      if (Sec == 60) {
+        Sec = 0;
+        Min++;
+      }
+    }
+    displaytimer();
+  };
+  const start = () => {
+    event.preventDefault();
+    timerId = setInterval(timer, 10);
+  };
+  const stop = () => {
+    clearInterval(timerId);
+  };
+  const reset = () => {
+    stop();
+    [Msec, Sec, Min] = [0, 0, 0];
+    displaytimer();
+  };
+
+  startBtn.addEventListener("click", start);
+  stopBtn.addEventListener("click", stop);
+  clearBtn.addEventListener("click", reset);
+}
+function lecture_03() {
+  const images = document.querySelectorAll(".item");
+  const Prev = document.querySelector(".prev");
+  const Next = document.querySelector(".next");
+  const Img_update = () => {
+    images.forEach((img) => {
+      img.classList.remove("show");
+    });
+    images[index].classList.add("show");
+  };
+  let index = 0;
+  let LastIndex = images.length - 1;
+  const moveToPrev = () => {
+    if (index == 0) {
+      index = LastIndex;
+    } else {
+      index--;
+    }
+    Img_update();
+  };
+  const moveToNext = () => {
+    if (index == LastIndex) {
+      index = 0;
+    } else {
+      index++;
+    }
+    Img_update();
+  };
+  Prev.addEventListener("click", moveToPrev);
+  Next.addEventListener("click", moveToNext);
+}
+function lecture_04(){
+  const Button = document.querySelector(".open");
+  const Container = document.querySelector(".modal-container");
+  const Body = document.querySelector("body");
+  Button.addEventListener("click", () => {
+    Container.classList.add("show");
+    console.log('dkdsafdlk')
+    Body.classList.add("overflow");
+  })
+  const Close = document.querySelector(".close")
+  Close.addEventListener("click",()=>{
+    Container.classList.remove("show")
+    Body.classList.remove("overflow")
+  })
+}
+function lecture_05(){
+  const buttons = document.querySelectorAll("button");
+    const result = ["가위", "바위", "보"];
+    const computerChoice = document.querySelector(".computer-choice");
+    const userChoice = document.querySelector(".you-choice");
+    const winner = document.querySelector(".block-result");
+    const show = (user, computer, result) => {
+      userChoice.innerText = user;
+      computerChoice.innerText = computer;
+      winner.innerText = result;
+    }
+    const Game = (user, computer) => {
+      let winMessage;
+      if (user == computer) {
+        winMessage = "무승부";
+      } else {
+        switch (user + computer) {
+          // 가위보, 바위가위, 보바위 -> 사용자 윈
+          // 가위바위, 바위보, 보가위 -> 컴퓨터 윈
+          case "가위보":
+          case "바위가위":
+          case "보바위":
+            winMessage = "사용자 승리!";
+            break; // case가 참일때까지 실행
+
+          case "가위바위":
+          case "바위보":
+          case "보가위":
+            winMessage = "컴퓨터 승리!";
+            break;
+        }
+      }
+      show(user, computer, winMessage)
+
+    }
+    const play = (event) => {
+      const user = event.target.innerText;
+      const randomIndex = Math.floor(Math.random() * 3);
+      const computer = result[randomIndex];
+      Game(user, computer,result);
+    }
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", play)
+    })
+    //Math.ramdom()*3 표현하고 싶은 숫자 범위 전까지
+    //floor() 함수 정수 밑에 자리는 무조건 버린다.
+    Math.random(Math.random() * 3)
+}
+
+
+
+
+lecture_01();
+lecture_02();
+lecture_03();
+lecture_04();
+lecture_05();
