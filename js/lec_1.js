@@ -148,10 +148,10 @@ function lecture_04(){
   })
 }
 function lecture_05(){
-  const buttons = document.querySelectorAll("button");
+    const buttons = document.querySelectorAll(".rcp");
     const result = ["가위", "바위", "보"];
     const computerChoice = document.querySelector(".computer-choice");
-    const userChoice = document.querySelector(".you-choice");
+    const userChoice = document.querySelector(".user-choice");
     const winner = document.querySelector(".block-result");
     const show = (user, computer, result) => {
       userChoice.innerText = user;
@@ -195,7 +195,6 @@ function lecture_05(){
     //floor() 함수 정수 밑에 자리는 무조건 버린다.
     Math.random(Math.random() * 3)
 }
-
 function main_Lec_02(){
   const video = document.querySelector("video");
   const playButton = document.querySelector(".play-pause > span");
@@ -237,11 +236,11 @@ function main_Lec_02(){
   }
   
   const play = () => {
-    playButton.innerText = '||';
+    playButton.innerHTML = '||';
     video.play();
   }
   const pause = () => {
-    playButton.innerText = '▶';
+    playButton.innerHTML = '▶';
     video.pause();
   }
   
@@ -259,10 +258,10 @@ function main_Lec_02(){
   video.addEventListener("timeupdate", updateProgress);
 }
 
-
 lecture_01();
 lecture_02();
 lecture_03();
 lecture_04();
 lecture_05();
-main_Lec_02();
+
+main_Lec_02()
