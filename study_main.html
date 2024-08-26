@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAVASCRIPT PROJECT 101</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" />
     <link rel="stylesheet" href="css/study_main.css">
@@ -132,9 +132,9 @@
                               <div class="block-result">가위바위보!</div>
                         </div>
                         <div id="sub_lec_6" class="sub">
-                            <form>
+                            <form id ="todos">
                                 <input type="text" placeholder="할 일을 입력하세요." />
-                                <button>등록</button><!--지정되지 않은 경우는 submit-->
+                                <button>등록</button>
                               </form>
                         </div>
                     </div>
@@ -145,7 +145,8 @@
                 <div class="sub-lecture">
                       <div class="player">
                         <!--controls -> html 5가 제공하는 플레이어-->
-                        <video playsinline autoplay loop muted>
+                        <!-- <video playsinline autoplay muted> -->
+                        <video muted>
                           <source src="sample.mp4" type="video/mp4" />
                         </video>
                     
@@ -201,7 +202,7 @@
     </div>
     <script src="js/study_main.js"></script>
     <script src="js/lec_1.js"></script>
-    <!-- <script src="js/lec_2.js"></script> -->
+    <script src="js/lec_2.js"></script>
 </body>
 
 </html>

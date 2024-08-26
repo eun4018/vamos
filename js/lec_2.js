@@ -1,63 +1,65 @@
-function main_Lec_02(){
-    const video = document.querySelector("video");
-    const playButton = document.querySelector(".play-pause > span");
-    const rateButtons = document.querySelectorAll(".rate");
-    const volumeBar = document.querySelector("input");
-    const updateProgress = () => {
-      const percent = (video.currentTime / video.duration) * 100;
-      const progressBar = document.querySelector(".bar");
-      progressBar.style.width = `${percent}%`;
-    
-      if (video.ended) {
-        pause();
-      }
-    }
-    const formatting = (time) => {
-      const Sec = Math.floor(time % 60);
-      const Min = Math.floor(time / 60) % 60;
-      const Hour = Math.floor(time / 3600);
-    
-      const fsec = Sec < 10 ? `0${Sec}` : Sec;
-      const fmin = Min < 10 ? `0${Min}` : Min;
-      const fhour = Hour < 10 ? `0${Hour}` : Hour;
-    
-      return `${fhour}:${fmin}:${fsec}`;
-    }
-    const updateTime = () => {
-      const current = document.querySelector(".current");
-      const duration = document.querySelector(".duration"); // duration부분을 계속 업뎃필요없음
-      current.innerText = formatting(video.currentTime);
-      duration.innerText = formatting(video.duration);
-    }
-    const setVolume = (event) => {
-      //0부터 1까지의 값
-      video.volume = event.target.value;
-    }
-    const setRate = (event) => {
-      const { rate } = event.target.dataset; // 구조분해할당 ES6 
-      video.playbackRate = rate;
-    }
-    
-    const play = () => {
-      playButton.innerHTML = '||';
-      video.play();
-    }
-    const pause = () => {
-      playButton.innerHTML = '▶';
-      video.pause();
-    }
-    
-    const togglePlay = () => {
-      //삼항 연산자 사용
-      video.paused ? play() : pause();
-    }
-    playButton.addEventListener("click", togglePlay);
-    rateButtons.forEach((button) => {
-      button.addEventListener("click", setRate);
-    });
-    
-    volumeBar.addEventListener("change", setVolume);
-    video.addEventListener("timeupdate", updateTime);
-    video.addEventListener("timeupdate", updateProgress);
+const Parent = document.getElementById("sub_lec_6")
+const Form = Parent.querySelector("form");
+const Input = Parent.querySelector("input");
+const List = Parent.querySelector(" ul");
+let todos = [];
+
+const Save = () => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+  //JSON.stringify 자바스크립트 객체 -> 문자열로 변경
+}
+
+const delItem = (event) => {
+  //console.dir(event.target) // parentNode, parentElement파악 가능
+  const Target = event.target.parentElement;
+  // todos = todos.filter((todo) => todo.id != Target.id)
+  // !=서로 형타입은 다르지만 비교 가능
+  todos = todos.filter((todo) => todo.id !== parseInt(Target.id)) // 문자열을 숫자로
+  Save();
+  Target.remove();
+}
+const addItem = (todo) => {
+  if (todo.text !== "") {
+    const child_li = document.createElement("li");
+    const button = document.createElement("button");
+    const span = document.createElement("span");
+
+    span.innerText = todo.text;
+    button.innerText = '❌';
+    button.addEventListener("click", delItem)
+    List.appendChild(child_li);
+    child_li.appendChild(span);
+    child_li.appendChild(button);
+    List.appendChild(child_li);
+//     const para = document.createElement("p");
+// para.innerHTML = "This is a paragraph.";
+// document.getElementById("myDIV").appendChild(para);
+    child_li.id = todo.id;
   }
-  main_Lec_02()
+}
+const Handler = (event) => {
+  event.preventDefault();
+  const todo = {
+    id: Date.now(),
+    text: Input.value
+  };
+  todos.push(todo);
+  Save();
+  addItem(todo);
+  Input.value = '';
+}
+//기존에 저장된 할일이 있다면 불러오기
+const init = () => {
+  // const userTodos = localStorage.getItem("todos");
+  const userTodos = JSON.parse(localStorage.getItem("todos"));
+  console.log(userTodos)
+  //객체 형태로 파싱
+  if (userTodos) {
+    userTodos.forEach((todo) => {
+      addItem(todo);
+    })
+    todos = userTodos;
+  }
+}
+Form.addEventListener("submit", Handler)
+init();

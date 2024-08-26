@@ -195,6 +195,12 @@ function lecture_05(){
     //floor() 함수 정수 밑에 자리는 무조건 버린다.
     Math.random(Math.random() * 3)
 }
+lecture_01();
+lecture_02();
+lecture_03();
+lecture_04();
+lecture_05();
+
 function main_Lec_02(){
   const video = document.querySelector("video");
   const playButton = document.querySelector(".play-pause > span");
@@ -248,6 +254,7 @@ function main_Lec_02(){
     //삼항 연산자 사용
     video.paused ? play() : pause();
   }
+
   playButton.addEventListener("click", togglePlay);
   rateButtons.forEach((button) => {
     button.addEventListener("click", setRate);
@@ -257,11 +264,4 @@ function main_Lec_02(){
   video.addEventListener("timeupdate", updateTime);
   video.addEventListener("timeupdate", updateProgress);
 }
-
-lecture_01();
-lecture_02();
-lecture_03();
-lecture_04();
-lecture_05();
-
 main_Lec_02()

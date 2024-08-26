@@ -6,7 +6,6 @@ const lec2 = document.querySelectorAll(".sub");
 const popup = (event) => {
    let target_id = event.target.hash;
    document.querySelector(target_id).style.display = "flex";
-   document.querySelector(target_id).classList.add("sub-add");
  };
 target.forEach((list) => {
   lectures[0].style.display = "flex";
@@ -36,3 +35,4 @@ sub_target.forEach((subList)=>{
       popup(event);
    })
 })
+
