@@ -27,10 +27,10 @@ const addItem = (todo) => {
     span.innerText = todo.text;
     button.innerText = '❌';
     button.addEventListener("click", delItem)
-    List.appendChild(child_li);
+    // List.appendChild(child_li);
     child_li.appendChild(span);
     child_li.appendChild(button);
-    List.appendChild(child_li);
+   Parent.appendChild(child_li);
 //     const para = document.createElement("p");
 // para.innerHTML = "This is a paragraph.";
 // document.getElementById("myDIV").appendChild(para);
