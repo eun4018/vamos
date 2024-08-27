@@ -1,67 +1,119 @@
-const Parent = document.getElementById("sub_lec_6");
-const Form = Parent.querySelector("form");
-const Input = Parent.querySelector("input");
-
-let todos = [];
-const Save = () => {
-  localStorage.setItem("todos", JSON.stringify(todos));
-  //JSON.stringify 자바스크립트 객체 -> 문자열로 변경
-};
-
-const delItem = (event) => {
-  //console.dir(event.target) // parentNode, parentElement파악 가능
-  const Target = event.target.parentElement;
-  // todos = todos.filter((todo) => todo.id != Target.id)
-  // !=서로 형타입은 다르지만 비교 가능
-  todos = todos.filter((todo) => todo.id !== parseInt(Target.id)); // 문자열을 숫자로
-  Save();
-  Target.remove();
-};
-const Lists = document.createElement("ul");
-Parent.appendChild(Lists);
-const addItem = (todo) => {
-  if (todo.text !== "") {
-    const child_li = document.createElement("li");
-    const button = document.createElement("button");
-    const span = document.createElement("span");
-
-    span.innerText = todo.text;
-    button.innerText = "❌";
-    button.addEventListener("click", delItem);
-    // List.appendChild(child_li);
-    // Parent.appendChild(Lists);
-    child_li.appendChild(span);
-    child_li.appendChild(button);
-    Lists.appendChild(child_li);
-    //     const para = document.createElement("p");
-    // para.innerHTML = "This is a paragraph.";
-    // document.getElementById("myDIV").appendChild(para);
-    child_li.id = todo.id;
+//trello app
+function main_Lec_05(){
+  const Parent_ID = document.getElementById("lecture_5")
+  const form = Parent_ID.querySelector("form");
+  const blocks = Parent_ID.querySelectorAll(".memo");
+  let from, to; //from-출발, to-도착
+  let todoList = [], doingList = [], doneList = [];
+  const lists = {
+    ToDo: todoList,
+    doing: doingList,
+    done: doneList,
   }
-};
-const Handler = (event) => {
-  event.preventDefault();
-  const todo = {
-    id: Date.now(),
-    text: Input.value,
+  const dragOver = (event) => {
+    event.preventDefault();
+    const { id: targetId } = event.target;
+    const listIds = Object.keys(lists) //  직접 찾은 열거 가능한 문자열 키 속성 이름에 해당하는 문자열을 요소로 하는 배열을 반환
+    console.log( listIds)
+    if (listIds.includes(targetId)) {
+      // id값이 포함되어 있는지 확인
+      to = targetId;
+    }
+  }
+
+  const saveList = (listId) => {
+    //setItem(keyName, keyValue)
+    localStorage.setItem(listId, JSON.stringify(lists[listId]))
+  }
+  const dragStart = (event) => {
+    from = event.target.parentElement.id;
+    to = from;
   };
-  todos.push(todo);
-  Save();
-  addItem(todo);
-  Input.value = "";
-};
-//기존에 저장된 할일이 있다면 불러오기
-const init = () => {
-  // const userTodos = localStorage.getItem("todos");
-  const userTodos = JSON.parse(localStorage.getItem("todos"));
-  console.log(userTodos);
-  //객체 형태로 파싱
-  if (userTodos) {
-    userTodos.forEach((todo) => {
-      addItem(todo);
+  const dragEnd = (event) => {
+    const { id } = event.target;
+    if (from === to) {
+      return;
+    }
+    event.target.remove();
+    lists[from] = lists[from].filter((ToDo) => {
+      if (ToDo.id !== id) {
+        return ToDo;
+      } else {
+        createElement(to, ToDo);
+      }
     });
-    todos = userTodos;
+    saveList(from); //출발 리스트
+    saveList(to); // 도착리스트
+  };
+
+  const loadList = () => {
+    const userTodoList = JSON.parse(localStorage.getItem("ToDo")) //자바스크립트 객체로 가져온다.
+    const userDoingList = JSON.parse(localStorage.getItem("doing"))
+    const userDoneList = JSON.parse(localStorage.getItem("done"))
+    if (userTodoList) {
+      userTodoList.forEach((ToDo) => {
+        createElement("ToDo", ToDo)
+      })
+    }
+    if (userDoingList) {
+      userDoingList.forEach((doing) => {
+        createElement("doing", doing)
+      })
+    }
+    if (userDoneList) {
+      userDoneList.forEach((done) => {
+        createElement("done", done)
+      })
+    }
   }
-};
-Form.addEventListener("submit", Handler);
-init();
+  const removeTodo = (event) => {
+    event.preventDefault(); // 바로 오른쪽 클릭창 뜨지 않도록
+    const { id } = event.target;
+    const { id: listId } = event.target.parentElement;
+    event.target.remove();
+    lists[listId] = lists[listId].filter((ToDo) => {
+      return ToDo.id !== id;
+    })
+
+    saveList(listId)
+  }
+  const createElement = (listId, ToDo) => {
+    const list = document.querySelector(`#${listId}`);
+    const item = document.createElement("div");//vscode-app/c:/Program%20Files%20(x86)/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html
+    item.id = ToDo.id;
+    item.innerText = ToDo.text;
+    item.className = 'item';
+    item.draggable = true; //html을 drag되게 해주는 요소
+    list.append(item);
+
+    item.addEventListener("dragstart", dragStart);
+    item.addEventListener("dragend", dragEnd);
+    item.addEventListener("contextmenu", removeTodo)
+    //contextmenu 마우스 오른쪽 클릭이벤트
+    lists[listId].push(ToDo);
+    // savsList(listId); 
+    // 반복적으로 저장이 됨.
+  }
+  const createTodo = (event) => {
+    event.preventDefault();
+    const input = form.querySelector("input");
+    const id = uuidv4();
+    //UUID 범용 고유 식별자(Universally Unique Identifier, UUID) 
+    //버전마다 ID 생성규칙이 조금씩 다름 https://github.com/uuidjs/uuid uuid cdn검색 사용!
+
+    const newTodo = {
+      id,
+      text: input.value,
+    }
+    createElement("ToDo", newTodo);
+    input.value = "";
+    //새로운 객체를 만들때만 저장하도록 넣어준다.
+    saveList("ToDo");
+  }
+  loadList();
+  form.addEventListener("submit", createTodo);
+  blocks.forEach((memo) => {
+    memo.addEventListener("dragover", dragOver)
+  })
+}
+main_Lec_05()

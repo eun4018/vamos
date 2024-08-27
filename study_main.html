@@ -20,7 +20,7 @@
           <li><a class="list" href="#lecture_2">02_video</a></li>
           <li><a class="list" href="#lecture_3">03_canvas</a></li>
           <li><a class="list" href="#lecture_4">chapter4</a></li>
-          <li><a class="list" href="#lecture_5">chapter5</a></li>
+          <li><a class="list" href="#lecture_5">05_trello_app</a></li>
           <li><a class="list" href="#lecture_6">chapter6</a></li>
           <li><a class="list" href="#lecture_7">chapter7</a></li>
           <li><a class="list" href="#lecture_8">chapter8</a></li>
@@ -194,14 +194,7 @@
                   </div>
 
                   <div class="menu">
-                    <input
-                      type="range"
-                      name="volume"
-                      min="0.0"
-                      max="1.0"
-                      step="0.1"
-                      value="0.5"
-                    />
+                    <input type="range" name="volume" min="0.0" max="1.0" step="0.1" value="0.5" />
 
                     <div class="time">
                       <div class="current">00:00:00</div>
@@ -216,9 +209,39 @@
             </div>
           </div>
         </div>
-        <div id="lecture_3" class="lecture">실습화면 영역3</div>
+        <div id="lecture_3" class="lecture">
+            <div class="sub-lecture">
+              실습화면 영역3
+            </div>
+        </div>
         <div id="lecture_4" class="lecture">실습화면 영역4</div>
-        <div id="lecture_5" class="lecture">실습화면 영역5</div>
+        <div id="lecture_5" class="lecture">
+            <div class="sub-lecture">
+                <div class="container">
+                  <form>
+                    <input type="text" placeholder="할 일을 입력하세요" required />
+                    <button>Add</button>
+                  </form>
+              
+                  <div class="blocks">
+                    <div class="block">
+                      <h2>⭐️ To Do</h2>
+                      <div id="ToDo" class="memo"></div>
+                    </div>
+              
+                    <div class="block">
+                      <h2>🔥 Doing</h2>
+                      <div id="doing" class="memo"></div>
+                    </div>
+              
+                    <div class="block">
+                      <h2>✅ Done</h2>
+                      <div id="done" class="memo"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
         <div id="lecture_6" class="lecture">실습화면 영역6</div>
         <div id="lecture_7" class="lecture">실습화면 영역7</div>
         <div id="lecture_8" class="lecture">실습화면 영역8</div>
@@ -227,5 +250,6 @@
     <script src="js/study_main.js"></script>
     <script src="js/lec_1.js"></script>
     <script src="js/lec_2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuidv4.min.js"></script>
   </body>
 </html>
