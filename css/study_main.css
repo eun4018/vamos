@@ -91,7 +91,7 @@ header {
   font-size: 1.2rem;
   text-align: center;
 }
-.container .list-box > ul > .list {
+.container  .list-box  .list {
   color: #343436;
   text-decoration: none;
 }
@@ -363,14 +363,14 @@ header {
   align-items: center;
 }
 
-#sub_lec_6 > ul {
+#sub_lec_6 > ul{
+  display:block;
   list-style: none;
   margin: 20px 10px;
   width: 80%;
   overflow-y: auto;
-  height: 30vh;
+  max-height: 30vh;
 }
-
 #sub_lec_6 > ul > li {
   border-bottom: 1px dotted lightgray;
   padding-bottom: 7px;

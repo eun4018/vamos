@@ -199,7 +199,7 @@ function lecture_06(){
   const Parent = document.getElementById("sub_lec_6");
   const Form = Parent.querySelector("form");
   const Input = Parent.querySelector("input");
-  let Lists = document.createElement("ul"); /*선택자 이슈로 변경*/
+  const Lists = document.createElement("ul"); /*선택자 이슈로 변경*/
   Parent.appendChild(Lists);
   let todos = [];
   const Save = () => {
@@ -214,7 +214,6 @@ function lecture_06(){
     // !=서로 형타입은 다르지만 비교 가능
     todos = todos.filter((todo) => todo.id !== parseInt(Target.id)); // 문자열을 숫자로
     Save();
-    Lists.remove(); /*선택자 이슈로 삽입*/
     Target.remove();
   };
   const addItem = (todo) => {
@@ -334,4 +333,5 @@ function main_Lec_02(){
   video.addEventListener("timeupdate", updateTime);
   video.addEventListener("timeupdate", updateProgress);
 }
+
 main_Lec_02()
