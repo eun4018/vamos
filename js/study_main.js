@@ -1,5 +1,5 @@
 const target = document.querySelectorAll(".list");
-const sub_target = document.querySelectorAll(".subList");
+const sub_target = document.querySelectorAll(".subL");
 let target_id;
 const lectures = document.querySelectorAll(".lecture");
 const lec2 = document.querySelectorAll(".sub");
