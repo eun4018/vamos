@@ -20,7 +20,7 @@
           <li><a class="list" href="#lecture_2">02_video</a></li>
           <li><a class="list" href="#lecture_3">03_canvas</a></li>
           <li><a class="list" href="#lecture_4">chapter4</a></li>
-          <li><a class="list" href="#lecture_5">chapter5</a></li>
+          <li><a class="list" href="#lecture_5">05_trello_app</a></li>
           <li><a class="list" href="#lecture_6">chapter6</a></li>
           <li><a class="list" href="#lecture_7">chapter7</a></li>
           <li><a class="list" href="#lecture_8">chapter8</a></li>
@@ -30,36 +30,12 @@
         <div id="lecture_1" class="lecture">
           <ul class="sub-menu">
             <!--onclick a태그 상단 이동 방지-->
-            <li>
-              <a href="#sub_lec_1" class="subList" onclick="return false"
-                >sub01</a
-              >
-            </li>
-            <li>
-              <a href="#sub_lec_2" class="subList" onclick="return false"
-                >sub02</a
-              >
-            </li>
-            <li>
-              <a href="#sub_lec_3" class="subList" onclick="return false"
-                >sub03</a
-              >
-            </li>
-            <li>
-              <a href="#sub_lec_4" class="subList" onclick="return false"
-                >sub04</a
-              >
-            </li>
-            <li>
-              <a href="#sub_lec_5" class="subList" onclick="return false"
-                >sub05</a
-              >
-            </li>
-            <li>
-              <a href="#sub_lec_6" class="subList" onclick="return false"
-                >sub06</a
-              >
-            </li>
+            <li><a href="#sub_lec_1" class="subList" onclick="return false">sub01</a></li>
+            <li><a href="#sub_lec_2" class="subList" onclick="return false">sub02</a> </li>
+            <li><a href="#sub_lec_3" class="subList" onclick="return false">sub03</a></li>
+            <li><a href="#sub_lec_4" class="subList" onclick="return false">sub04</a></li>
+            <li><a href="#sub_lec_5" class="subList" onclick="return false">sub05</a></li>
+            <li><a href="#sub_lec_6" class="subList" onclick="return false">sub06</a></li>
           </ul>
           <div class="sub-lecture-inner">
             <div class="sub-lecture">
@@ -101,23 +77,17 @@
               <div id="sub_lec_3" class="sub">
                 <div class="slider">
                   <div class="item show">
-                    <img
-                      src="https://github.com/erumcoding/js-project-101/blob/main/01-exercise/04-image-slider/images/1.jpeg?raw=true"
-                    />
+                    <img src="https://github.com/erumcoding/js-project-101/blob/main/01-exercise/04-image-slider/images/1.jpeg?raw=true"/>
                     <p>첫 번째</p>
                   </div>
 
                   <div class="item">
-                    <img
-                      src="https://github.com/erumcoding/js-project-101/blob/main/01-exercise/04-image-slider/images/2.jpeg?raw=true"
-                    />
+                    <img src="https://github.com/erumcoding/js-project-101/blob/main/01-exercise/04-image-slider/images/2.jpeg?raw=true"/>
                     <p>두 번째</p>
                   </div>
 
                   <div class="item">
-                    <img
-                      src="https://github.com/erumcoding/js-project-101/blob/main/01-exercise/04-image-slider/images/3.jpeg?raw=true"
-                    />
+                    <img src="https://github.com/erumcoding/js-project-101/blob/main/01-exercise/04-image-slider/images/3.jpeg?raw=true"/>
                     <p>세 번째</p>
                   </div>
 
@@ -194,14 +164,7 @@
                   </div>
 
                   <div class="menu">
-                    <input
-                      type="range"
-                      name="volume"
-                      min="0.0"
-                      max="1.0"
-                      step="0.1"
-                      value="0.5"
-                    />
+                    <input type="range" name="volume" min="0.0" max="1.0" step="0.1" value="0.5" />
 
                     <div class="time">
                       <div class="current">00:00:00</div>
@@ -217,6 +180,7 @@
           </div>
         </div>
         <div id="lecture_3" class="lecture">
+<<<<<<< HEAD
           <ul class="sub-menu">
             <!--onclick a태그 상단 이동 방지-->
             <li>
@@ -252,9 +216,39 @@
               <div id="sub_lec_3_3" class="sub">ddd</div>
             </div>
           </div>
+=======
+            <div class="sub-lecture">
+
+            </div>
+>>>>>>> 26c7a98312868f568436465272f90f2d1e1d356f
         </div>
         <div id="lecture_4" class="lecture">실습화면 영역4</div>
-        <div id="lecture_5" class="lecture">실습화면 영역5</div>
+        <div id="lecture_5" class="lecture">
+            <div class="sub-lecture">
+                <div class="container">
+                  <form>
+                    <input type="text" placeholder="할 일을 입력하세요" required />
+                    <button>Add</button>
+                  </form>
+                  <div class="blocks">
+                    <div class="block">
+                      <h2>⭐️ To Do</h2>
+                      <div id="ToDo" class="memo"></div>
+                    </div>
+              
+                    <div class="block">
+                      <h2>🔥 Doing</h2>
+                      <div id="doing" class="memo"></div>
+                    </div>
+              
+                    <div class="block">
+                      <h2>✅ Done</h2>
+                      <div id="done" class="memo"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
         <div id="lecture_6" class="lecture">실습화면 영역6</div>
         <div id="lecture_7" class="lecture">실습화면 영역7</div>
         <div id="lecture_8" class="lecture">실습화면 영역8</div>
@@ -263,5 +257,6 @@
     <script src="js/study_main.js"></script>
     <script src="js/lec_1.js"></script>
     <script src="js/lec_2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuidv4.min.js"></script>
   </body>
 </html>
