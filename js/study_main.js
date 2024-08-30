@@ -34,7 +34,6 @@ target.forEach((list) => {
     list.classList.add("on");
     lectures.forEach((lecture) => {
       lecture.style.display = "none";
-      submenu();
     });
     popup(event);
   });
