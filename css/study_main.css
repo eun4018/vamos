@@ -322,10 +322,9 @@ header {
 }
 #sub_lec_5 .buttons {
   width: max(80%, 250px);
-  /* display: grid;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px; */
-  height: 4vh;
+  grid-gap: 10px;
   margin:20px 0;
 }
 /* #sub_lec_6 */
