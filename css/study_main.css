@@ -48,7 +48,7 @@ button {
   cursor: pointer;
   background-color: var(--blue);
   color: var(--white);
-  font-size: 1.5rem;
+  font-size: 1.325rem;
   transition: all 0.5s;
 }
 button:hover {
@@ -321,7 +321,7 @@ header {
   color: var(--red);
 }
 #sub_lec_5 .buttons {
-  width: max(80%, 250px);
+  width: max(90%, 300px);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
@@ -339,7 +339,6 @@ header {
   column-gap: 10px;
   width: 80%;
   flex-direction: row;
-  padding:0 5vw;
 }
 #sub_lec_6 > form > input {
   padding: 10px 5px;
