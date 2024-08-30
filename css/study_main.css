@@ -123,7 +123,7 @@ header {
   justify-content: center;
 }
 .lecture-area .sub-lecture {
-  width: min(80%, 640px);
+  width: min(84%, 640px);
   height: 480px;
   box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.35);
   display: flex;
@@ -321,52 +321,52 @@ header {
   color: var(--red);
 }
 #sub_lec_5 .buttons {
-  width: max(90%, 300px);
+  width: min(90%, 300px);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
   margin:20px 0;
+  height:40px;
 }
 /* #sub_lec_6 */
-#sub_lec_6 {
+#sub_lec_6 > .container.todo {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 0 10px;
 }
-#sub_lec_6 > form {
+#sub_lec_6 > .container.todo > form {
   display: flex;
   align-items: center;
+  justify-content: center;
   column-gap: 10px;
-  width: 80%;
-  flex-direction: row;
 }
-#sub_lec_6 > form > input {
+#sub_lec_6 > .container.todo > form > input {
   padding: 10px 5px;
   outline: none;
   font-size: 1rem;
   font-family: "DungGeunMo";
-  flex: 0.8;
+  width: max(80%, 200px);
 }
-#sub_lec_6 > form > button {
+#sub_lec_6 > .container.todo > form > button {
   font-size: 1rem;
   height: 100%;
-  padding: 10px 12px;
-  flex: 0.2;
+  width: min(20%, 100px);
 }
-#sub_lec_6 > ul > li > button,
-#sub_lec_6 > ul > li > button:hover {
+#sub_lec_6 > .container.todo  > ul > li > button,
+#sub_lec_6 > .container.todo > ul > li > button:hover {
   width: auto;
   background: transparent;
   border: 0;
 }
 
-#sub_lec_6 > ul > li {
+#sub_lec_6 > .container.todo  > ul > li {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#sub_lec_6 > ul{
+#sub_lec_6 > .container.todo  > ul{
   display:block;
   list-style: none;
   margin: 20px 10px;
@@ -374,7 +374,7 @@ header {
   overflow-y: auto;
   max-height: 30vh;
 }
-#sub_lec_6 > ul > li {
+#sub_lec_6 > .container.todo  > ul > li {
   border-bottom: 1px dotted lightgray;
   padding-bottom: 7px;
   margin-bottom: 7px;

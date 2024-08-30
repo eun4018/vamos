@@ -196,7 +196,7 @@ function lecture_05(){
     Math.random(Math.random() * 3)
 }
 function lecture_06(){
-  const Parent = document.getElementById("sub_lec_6");
+  const Parent = document.querySelector(".container.todo");
   const Form = Parent.querySelector("form");
   const Input = Parent.querySelector("input");
   const Lists = document.createElement("ul"); /*선택자 이슈로 변경*/
