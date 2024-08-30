@@ -34,8 +34,7 @@ target.forEach((list) => {
     list.classList.add("on");
     lectures.forEach((lecture) => {
       lecture.style.display = "none";
-      lec2[0].style.display = "flex";
-      sub_target[0].classList.add("on");
+      submenu();
     });
     popup(event);
   });
