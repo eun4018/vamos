@@ -30,40 +30,16 @@
         <div id="lecture_1" class="lecture">
           <ul class="sub-menu">
             <!--onclick a태그 상단 이동 방지-->
-            <li>
-              <a href="#sub_lec_1" class="subList on" onclick="return false"
-                >sub01</a
-              >
-            </li>
-            <li>
-              <a href="#sub_lec_2" class="subList" onclick="return false"
-                >sub02</a
-              >
-            </li>
-            <li>
-              <a href="#sub_lec_3" class="subList" onclick="return false"
-                >sub03</a
-              >
-            </li>
-            <li>
-              <a href="#sub_lec_4" class="subList" onclick="return false"
-                >sub04</a
-              >
-            </li>
-            <li>
-              <a href="#sub_lec_5" class="subList" onclick="return false"
-                >sub05</a
-              >
-            </li>
-            <li>
-              <a href="#sub_lec_6" class="subList" onclick="return false"
-                >sub06</a
-              >
-            </li>
+            <li  class="subList" data-list="1">sub01</li>
+            <li  class="subList" data-list="2">sub02</li>
+            <li  class="subList" data-list="3">sub03</li>
+            <li  class="subList" data-list="4">sub04</li>
+            <li  class="subList" data-list="5">sub05</li>
+            <li  class="subList" data-list="6">sub06</li>
           </ul>
           <div class="sub-lecture-inner">
             <div class="sub-lecture">
-              <div id="sub_lec_1" class="sub" style="display:flex;">
+              <div id="sub_lec_1" class="sub" data-order="1">
                 <h1>BMI Calculator</h1>
                 <form>
                   <label for="height">Height (cm)</label>
@@ -77,7 +53,7 @@
                 </form>
                 <div class="result"></div>
               </div>
-              <div id="sub_lec_2" class="sub">
+              <div id="sub_lec_2" class="sub" data-order="2">
                 <div class="timer">
                   <div class="time hour">00</div>
                   <div class="divider">:</div>
@@ -98,7 +74,7 @@
                   </div>
                 </div>
               </div>
-              <div id="sub_lec_3" class="sub">
+              <div id="sub_lec_3" class="sub" data-order="3">
                 <div class="slider">
                   <div class="item show">
                     <img
@@ -127,7 +103,7 @@
                   </div>
                 </div>
               </div>
-              <div id="sub_lec_4" class="sub">
+              <div id="sub_lec_4" class="sub" data-order="4">
                 <button class="open">👉 Click</button>
                 <div class="modal-container">
                   <div class="modal">
@@ -140,7 +116,7 @@
                   </div>
                 </div>
               </div>
-              <div id="sub_lec_5" class="sub">
+              <div id="sub_lec_5" class="sub" data-order="5">
                 <div class="container">
                   <div class="block">
                     <h3>컴퓨터 선택 :</h3>
@@ -160,7 +136,7 @@
 
                 <div class="block-result">가위바위보!</div>
               </div>
-              <div id="sub_lec_6" class="sub">
+              <div id="sub_lec_6" class="sub" data-order="6">
                 <div class="container todo">
                   <form>
                     <input type="text" placeholder="할 일을 입력하세요." />
@@ -221,20 +197,16 @@
         <div id="lecture_3" class="lecture">
           <ul class="sub-menu">
             <!--onclick a태그 상단 이동 방지-->
-            <li>
-              <a href="#sub_lec_3_1" class="subList on" onclick="return false">sub01</a>
-            </li>
-            <li>
-              <a href="#sub_lec_3_2" class="subList" onclick="return false"
-                >sub02</a
-              >
-            </li>
+            <li  class="subList active" data-list="7">sub01</li>
+            <li  class="subList" data-list="8">sub02</li>
+            <li  class="subList" data-list="9">sub03</li>
           </ul>
           <div class="sub-lecture-inner">
             <div class="sub-lecture">
-              <div id="sub_lec_3_3" class="sub" style="display:flex;">aaa</div>
-              <div id="sub_lec_3_3" class="sub">ddd</div>
-            </div>
+              <div class="sub show" data-order="7">111</div>
+              <div class="sub" data-order="8">222</div>
+              <div class="sub" data-order="9">333</div>
+              </div>
           </div>
         </div>
         <div id="lecture_4" class="lecture">
@@ -247,6 +219,7 @@
                 <input type="text" placeholder="할 일을 입력하세요" required />
                 <button>Add</button>
               </form>
+              <p>*해당 페이지의 trello app은 PC에서만 가능</p>
               <div class="blocks">
                 <div class="block">
                   <h2>⭐️ To Do</h2>

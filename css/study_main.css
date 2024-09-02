@@ -134,21 +134,25 @@ header {
   display: none;
   width: 100%;
 }
+.lecture-area .sub-lecture .sub.show {
+display:flex;
+}
 .lecture-area > .lecture > ul {
   display: flex;
   flex-direction: column;
   background: var(--blue);
   height: 100%;
 }
-.lecture-area > .lecture > ul li a {
+.lecture-area > .lecture .subList {
   font-size: 1.325rem;
   padding: 16px 2vw;
   color: var(--white);
   display: flex;
   transition: all 0.3s;
+  cursor:pointer;
 }
-.lecture-area > .lecture > ul a:hover,
-.lecture-area > .lecture > ul li a.on {
+.lecture-area > .lecture .subList:hover,
+.lecture-area > .lecture .subList.active {
   background-color: var(--navy);
   color: var(--white);
 }
@@ -313,7 +317,7 @@ header {
   font-size: 1.8rem;
   gap: 2vh 0;
 }
-#sub_lec_5 .container p {
+#sub_lec_5 .container  p {
   margin-top: 10px;
   display: inline-block;
   background-color: var(--yellow);
@@ -547,6 +551,10 @@ header {
 
 #lecture_5  > .sub-lecture > .container > .blocks  .dragover {
   background-color: var(--grey);
+}
+#lecture_5  > .sub-lecture > .container > p{
+  color:#fff;
+  margin-top:10px;
 }
 /*미디어 쿼리*/
 @media screen and (max-width: 60rem) {
