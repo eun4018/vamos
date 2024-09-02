@@ -1,5 +1,5 @@
 const submenu = (e) => {
-  const tab  = document.querySelector(".lecture");
+  // const tab  = document.querySelector(".lecture");
   const Parent = document.querySelector(".sub-menu")
   const tabItem = Parent.querySelectorAll(" .subList");
   const tabContent = document.querySelectorAll(".sub");
@@ -39,6 +39,7 @@ const Mainmenu_tab = () => {
         list.classList.add("on");
         lectures.forEach((lecture) => {
           lecture.style.display = "none";
+          // submenu()
         });
         popup(event);
       });
