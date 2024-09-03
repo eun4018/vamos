@@ -552,8 +552,89 @@ header {
 #lecture_3  .sub-lecture  > .sub.sub2:last-child   > .inner  >.text {
   display: none;
 }
+/* #lecture_4*/
+#lecture_4 > .sub-lecture{
+  height:720px;
+}
+#lecture_4 .container {
+  padding-top: 30px;
+  width: 60%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  font-size: 1.5rem;
+}
 
+#lecture_4 .container  button {
+  width: 100%;
+  background-color: var(--blue);
+  color: var(--white);
+  border: 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: 'LeeSeoyun', sans-serif;
+  font-size: 1.5rem;
+}
 
+#lecture_4 .container  ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 100%;
+}
+
+#lecture_4 .container  ul > li > label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  row-gap: 10px;
+  background-color: var(--white);
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 15px;
+}
+
+#lecture_4 .sort-buttons{
+  display:flex;
+  width:100%;
+}
+#lecture_4 .descending{
+  margin-left:10px;
+}
+#lecture_4 .container .name {
+  font-size: 160%;
+}
+
+#lecture_4 .container .price {
+  font-size: 85%;
+  color: var(--red);
+}
+#lecture_4 .container  select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: var(--white);
+  font-family: 'LeeSeoyun', sans-serif;
+  font-size: 1.5rem;
+}
+
+#lecture_4 .container .total {
+  font-weight: bold;
+  font-size: 160%;
+}
+
+#lecture_4 .container .total-price {
+  color: var(--blue);
+}
+
+#lecture_4 .container  input[type='checkbox'] {
+  width: 15px;
+  height: 15px;
+}
 /* #lecture_5*/
 #lecture_5 > .sub-lecture {
   width: min(86%, 1600px);
