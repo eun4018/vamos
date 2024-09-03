@@ -102,9 +102,10 @@ function lecture_02() {
   clearBtn.addEventListener("click", reset);
 }
 function lecture_03() {
-  const images = document.querySelectorAll(".item");
-  const Prev = document.querySelector(".prev");
-  const Next = document.querySelector(".next");
+  const Parent_img = document.querySelector("#sub_lec_3")
+  const images = Parent_img.querySelectorAll(".item");
+  const Prev = Parent_img.querySelector(".prev");
+  const Next = Parent_img.querySelector(".next");
   const Img_update = () => {
     images.forEach((img) => {
       img.classList.remove("show");
@@ -137,13 +138,12 @@ function lecture_04(){
   const Container = document.querySelector(".modal-container");
   const Body = document.querySelector("body");
   Button.addEventListener("click", () => {
-    Container.classList.add("show");
-    console.log('dkdsafdlk')
+    Container.classList.add("showed");
     Body.classList.add("overflow");
   })
   const Close = document.querySelector(".close")
   Close.addEventListener("click",()=>{
-    Container.classList.remove("show")
+    Container.classList.remove("showed")
     Body.classList.remove("overflow")
   })
 }
@@ -335,3 +335,146 @@ function main_Lec_02(){
 }
 
 main_Lec_02()
+
+function main_Lec_03_1(){
+    const Parent_Draw = document.querySelector("#lecture_3 .sub.sub2:first-child")
+    const canvas = Parent_Draw.querySelector("canvas");
+    const color = Parent_Draw.querySelector("#color");
+    const Width = Parent_Draw.querySelector("#width");
+    const clear = Parent_Draw.querySelector(".clear");
+    const save = Parent_Draw.querySelector(".save");
+
+    const ctx = canvas.getContext("2d"); // 그림을 그릴수 있게 된다.
+    ctx.fillStyle = 'white'; // 저장 캔버스 배경 흰색
+    ctx.fillRect(0, 0, canvas.width, canvas.height); // 범위 지정 필요
+    let isPainting = false;
+    let lineWidth = 5;
+        //clear 버튼 관련
+    clear.addEventListener("click", () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      //x,y,캔버스 가로, 캔버스 세로
+    })
+    //컬러값변경
+    color.addEventListener("change", (event) => {
+      // console.log(event.target.value)
+      ctx.strokeStyle = event.target.value;
+    })
+
+    //선의 굵기 선택관련 (Width)
+    Width.addEventListener("change", (event) => {
+      lineWidth = event.target.value; // number type 5, 10;
+    })
+
+    // 마우스 클릭시, 첫 시작
+    canvas.addEventListener("mousedown", (event) => {
+      isPainting = true; // 그림그리고 있는 중을 나타냄  
+      ctx.beginPath(); // 새로운 경로를 생성
+      ctx.moveTo(event.offsetX, event.offsetY);
+      //지정된 위치로 이동
+
+    })
+
+    // 마우스로 그릴 때
+    canvas.addEventListener("mousemove", (event) => {
+      // console.log(event);
+      if (!isPainting) {
+        //클릭을 뗏다면 바로 리턴하도록
+        return;
+      }
+      ctx.lineWidth = lineWidth; // 시스템의 linewidth를 전역변수 lineWidth로 지정.
+      ctx.lineCap = 'round'; //선의 끝부분을 지정;
+      ctx.lineTo(event.offsetX, event.offsetY);
+      // 이전경로부터 지정된 경로까지 선을 그리는 메소드 - 실제로 하진 않는다.
+      ctx.stroke(); // 그래서 요게 필요하다.
+    })
+    // 마우스가 캔버스를 벗어나면
+    canvas.addEventListener("mouseout", (event) => {
+      isPainting = false;
+    })
+    // 마우스 클릭 종료
+    canvas.addEventListener("mouseup", (event) => {
+      isPainting = false;
+    })
+    save.addEventListener("click", () => {
+      // 이미지로 저장해주고 콜백함수가 필요하다. 캔버스의 이미지를 의미 = blob
+      canvas.toBlob((blob) => {
+        const a_down = document.createElement("a");
+        a_down.href = URL.createObjectURL(blob);
+        // 특정인지값을 넣어주면 주소로 만들어주는 메소드
+        a_down.download = 'my_drawing.png';
+        a_down.click();
+      })
+    })
+}
+function main_Lec_03_2(){
+  const Parent_Draw2 = document.querySelector("#lecture_3 .sub.sub2:last-child")
+  const canvas = Parent_Draw2.querySelector("canvas");
+  const imageFile = Parent_Draw2.querySelector("#image-file");
+  const ctx = canvas.getContext("2d");
+  const textInputs = Parent_Draw2.querySelectorAll(".text");
+  const topTextInput = Parent_Draw2.querySelector("#top-text");
+  const bottomTextInput = Parent_Draw2.querySelector("#bottom-text");
+  
+  let image;
+  let width;
+  let height;
+  let top_text = "";
+  let bottom_text = "";
+  const showInputs = () => {
+    textInputs.forEach((input) => {
+      input.style.display = "flex";
+    });
+  }
+  const uploadImage = () => {
+    width = image.width;
+    height = image.height;
+  
+    canvas.width = width;
+    canvas.height = height;
+  
+    ctx.drawImage(image, 50, 50);
+    // 그림 그릴 이미지를 넘겨준다.
+    showInputs();
+  }
+  const createImage = (event) => {
+    const imgURL = URL.createObjectURL(event.target.files[0])
+    // console.log(event.target.files[0]);
+    image = document.createElement("img");
+    image.src = imgURL;
+    image.addEventListener("load", uploadImage);
+  }
+  const drawText = () => {
+    const offsetY = height / 20;
+    const fontSize = height / 10;
+  
+    ctx.font = `${fontSize}px sans-serif`;
+    ctx.fillStyle = "white";
+    ctx.textAlign = "center";
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = fontSize / 5;
+    ctx.lineJoin = "round";
+  
+    ctx.textBaseline = "top";
+    ctx.strokeText(top_text, width / 2, offsetY); 
+  // 반드시 이거부터!!!해야 우리 의도되로 된다. 아니면 자동으로 그려주지 않는다.
+    ctx.fillText(top_text, width / 2, offsetY);
+  
+    ctx.textBaseline = "bottom";
+    ctx.strokeText(bottom_text, width / 2, height - offsetY);
+    ctx.fillText(bottom_text, width / 2, height - offsetY);
+  }
+  const updateText_top = (event) => {
+    top_text = event.target.value;
+    drawText();
+  };
+  const updateText_bottom = (event) => {
+    bottom_text = event.target.value;
+    drawText();
+  };
+  imageFile.addEventListener("change", createImage);
+  topTextInput.addEventListener("change",  updateText_top) 
+  bottomTextInput.addEventListener("change", updateText_bottom)
+}
+main_Lec_03_1()
+main_Lec_03_2()
+

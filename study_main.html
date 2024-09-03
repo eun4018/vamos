@@ -33,12 +33,12 @@
         <div id="lecture_1" class="lecture">
           <ul class="sub-menu">
             <!--onclick a태그 상단 이동 방지-->
-            <li class="subList" data-list="1">sub01</li>
-            <li class="subList" data-list="2">sub02</li>
-            <li class="subList" data-list="3">sub03</li>
-            <li class="subList" data-list="4">sub04</li>
-            <li class="subList" data-list="5">sub05</li>
-            <li class="subList" data-list="6">sub06</li>
+            <li class="subList" data-list="1">BMI</li>
+            <li class="subList" data-list="2">STOPWATCH</li>
+            <li class="subList" data-list="3">SLIDE</li>
+            <li class="subList" data-list="4">POPUP</li>
+            <li class="subList" data-list="5">R-P-S</li>
+            <li class="subList" data-list="6">TODO</li>
           </ul>
           <div class="sub-lecture-inner">
             <div class="sub-lecture">
@@ -200,19 +200,61 @@
         <div id="lecture_3" class="lecture">
           <ul class="sub-menu sub2">
             <!--onclick a태그 상단 이동 방지-->
-            <li class="subList sub2 active" data-index="7">sub01</li>
-            <li class="subList sub2" data-index="8">sub02</li>
-            <li class="subList sub2" data-index="9">sub03</li>
+            <li class="subList sub2 active" data-index="7">draw</li>
+            <li class="subList sub2" data-index="8">ZZhal</li>
           </ul>
           <div class="sub-lecture-inner">
-            <div class="sub-lecture">
-              <div class="sub sub2 on" data-id="7">111</div>
-              <div class="sub sub2" data-id="8">222</div>
-              <div class="sub sub2" data-id="9">333</div>
+              <div class="sub-lecture">
+                <div class="sub sub2 on" data-id="7">
+                  <div class="container">
+                    <div class="menu">
+                      <div class="item">
+                        <label for="color">Color</label>
+                        <input type="color" name="color" id="color" />
+                      </div>
+                
+                      <div class="item">
+                        <label for="width">Width</label>
+                        <input type="number" name="width" id="width" min="1" max="10" value="5" />
+                      </div>
+                
+                      <button class="clear">Clear</button>
+                      <button class="save">Save to Image</button>
+                    </div>
+                
+                    <canvas width="550" height="350"></canvas><!--html5 부터 지원-->
+                  </div>
+              </div>
+              <div class="sub sub2" data-id="8">
+                  <div class="inner">
+                    <h1>짤방 생성기</h1>
+                
+                    <div class="item">
+                      <label>Select an Image</label>
+                      <input type="file" id="image-file" />
+                    </div>
+                
+                    <div class="item text">
+                      <label>Top Text</label>
+                      <input type="text" id="top-text" />
+                    </div>
+                
+                    <div class="item text">
+                      <label>Bottom Text</label>
+                      <input type="text" id="bottom-text" />
+                    </div>
+                
+                    <canvas></canvas>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
-        <div id="lecture_4" class="lecture"></div>
+        <div id="lecture_4" class="lecture">
+          <div class="sub-lecture">
+              
+          </div>
+        </div>
         <div id="lecture_5" class="lecture">
           <div class="sub-lecture">
             <div class="container">
@@ -248,6 +290,7 @@
     <script src="js/study_main.js"></script>
     <script src="js/lec_1.js"></script>
     <script src="js/lec_2.js"></script>
+    <script type="module" src="js/lec_3.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuidv4.min.js"></script>
   </body>
 </html>

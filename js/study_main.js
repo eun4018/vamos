@@ -26,7 +26,7 @@ const submenu = (e) => {
   const tabItem = Parent.querySelectorAll(".subList");
   const tabContent = document.querySelectorAll(".sub");
   tabItem[0].classList.add("active");
-  tabContent[0].classList.add("show");
+  tabContent[0].classList.add("in");
   tabItem.forEach((subList) => {
     subList.addEventListener("click", (e) => {
       tabItem.forEach((subList) => {
@@ -36,8 +36,8 @@ const submenu = (e) => {
       tabContent.forEach((sub) => {
         const listOrder = e.target.dataset.list;
         if (sub.dataset.order === listOrder) {
-          sub.classList.add("show");
-        } else sub.classList.remove("show");
+          sub.classList.add("in");
+        } else sub.classList.remove("in");
       });
     });
   });
@@ -57,7 +57,6 @@ const sub_menu2 = (e) => {
       tabContent2.forEach((sub_sub2) => {
         const indexOrder = e.target.dataset.index;
         if (sub_sub2.dataset.id === indexOrder) {
-          console.log(e.target.dataset.id);
           sub_sub2.classList.add("on");
         } else sub_sub2.classList.remove("on");
       });
