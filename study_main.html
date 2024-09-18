@@ -24,8 +24,8 @@
           <li><a class="list" href="#lecture_3">03_canvas</a></li>
           <li><a class="list" href="#lecture_4">04_product_list</a></li>
           <li><a class="list" href="#lecture_5">05_trello_app</a></li>
-          <li><a class="list" href="#lecture_6">chapter6</a></li>
-          <li><a class="list" href="#lecture_7">chapter7</a></li>
+          <li><a class="list" href="#lecture_6">06_weather</a></li>
+          <li><a class="list" href="#lecture_7">07_movie</a></li>
           <li><a class="list" href="#lecture_8">chapter8</a></li>
         </ul>
       </div>
@@ -204,74 +204,83 @@
             <li class="subList sub2" data-index="8">ZZhal</li>
           </ul>
           <div class="sub-lecture-inner">
-              <div class="sub-lecture">
-                <div class="sub sub2 on" data-id="7">
-                  <div class="container">
-                    <div class="menu">
-                      <div class="item">
-                        <label for="color">Color</label>
-                        <input type="color" name="color" id="color" />
-                      </div>
-                
-                      <div class="item">
-                        <label for="width">Width</label>
-                        <input type="number" name="width" id="width" min="1" max="10" value="5" />
-                      </div>
-                
-                      <button class="clear">Clear</button>
-                      <button class="save">Save to Image</button>
+            <div class="sub-lecture">
+              <div class="sub sub2 on" data-id="7">
+                <div class="container">
+                  <div class="menu">
+                    <div class="item">
+                      <label for="color">Color</label>
+                      <input type="color" name="color" id="color" />
                     </div>
-                
-                    <canvas width="550" height="350"></canvas><!--html5 부터 지원-->
+
+                    <div class="item">
+                      <label for="width">Width</label>
+                      <input
+                        type="number"
+                        name="width"
+                        id="width"
+                        min="1"
+                        max="10"
+                        value="5"
+                      />
+                    </div>
+
+                    <button class="clear">Clear</button>
+                    <button class="save">Save to Image</button>
                   </div>
+
+                  <canvas width="550" height="350"></canvas
+                  ><!--html5 부터 지원-->
+                </div>
               </div>
               <div class="sub sub2" data-id="8">
-                  <div class="inner">
-                    <h1>짤방 생성기</h1>
-                
-                    <div class="item">
-                      <label>Select an Image</label>
-                      <input type="file" id="image-file" />
-                    </div>
-                
-                    <div class="item text">
-                      <label>Top Text</label>
-                      <input type="text" id="top-text" />
-                    </div>
-                
-                    <div class="item text">
-                      <label>Bottom Text</label>
-                      <input type="text" id="bottom-text" />
-                    </div>
-                
-                    <canvas></canvas>
+                <div class="inner">
+                  <h1>짤방 생성기</h1>
+
+                  <div class="item">
+                    <label>Select an Image</label>
+                    <input type="file" id="image-file" />
                   </div>
+
+                  <div class="item text">
+                    <label>Top Text</label>
+                    <input type="text" id="top-text" />
+                  </div>
+
+                  <div class="item text">
+                    <label>Bottom Text</label>
+                    <input type="text" id="bottom-text" />
+                  </div>
+
+                  <canvas></canvas>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div id="lecture_4" class="lecture">
           <div class="sub-lecture">
-                  <div class="container">
-                    <h1>상품 목록</h1>
-                    <select name="category">
-                      <option value="">-- 필터를 선택하세요 --</option> <!--이것은 사용안함-->
-                      <!--index 1번부터-->
-                      <option value="life">생활용품</option>
-                      <option value="it">전자기기</option>
-                      <option value="book">도서/문구</option>
-                    </select>
-                    <button>상품 목록 불러오기</button>
-                    <div class="sort-buttons">
-                        <button class="ascending">가격 오름차순 정렬</button>
-                        <button class="descending">가격 내림차순 정렬</button>
-                    </div>
-                    <ul></ul>
-                    <div class="total">
-                      Total :
-                      <span class="total-price">₩0</span>
-                    </div>
+            <div class="container">
+              <h1>상품 목록</h1>
+              <select name="category">
+                <option value="">-- 필터를 선택하세요 --</option>
+                <!--이것은 사용안함-->
+                <!--index 1번부터-->
+                <option value="life">생활용품</option>
+                <option value="it">전자기기</option>
+                <option value="book">도서/문구</option>
+              </select>
+              <button>상품 목록 불러오기</button>
+              <div class="sort-buttons">
+                <button class="ascending">가격 오름차순 정렬</button>
+                <button class="descending">가격 내림차순 정렬</button>
               </div>
+              <ul></ul>
+              <div class="total">
+                Total :
+                <span class="total-price">₩0</span>
+              </div>
+            </div>
           </div>
         </div>
         <div id="lecture_5" class="lecture">
@@ -301,7 +310,25 @@
             </div>
           </div>
         </div>
-        <div id="lecture_6" class="lecture">실습화면 영역6</div>
+        <div id="lecture_6" class="lecture">
+          <div id="weather">
+            <div class="noti">
+              위치 정보를 가져올 수 없습니다.<br />
+              위치 설정을 확인해주세요.
+            </div>
+
+            <div class="container">
+              <div class="current-weather">
+                <img class="icon" />
+                <div class="temp">현재 온도</div>
+                <div class="info">
+                  <div class="weather">현재 날씨</div>
+                  <div class="city">현재 위치</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div id="lecture_7" class="lecture">실습화면 영역7</div>
         <div id="lecture_8" class="lecture">실습화면 영역8</div>
       </div>
@@ -310,6 +337,7 @@
     <script src="js/lec_1.js"></script>
     <script src="js/lec_2.js"></script>
     <script type="module" src="js/lec_3.js"></script>
+    <script type="module" src="js/lec_4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuidv4.min.js"></script>
   </body>
 </html>

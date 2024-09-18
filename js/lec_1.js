@@ -102,7 +102,7 @@ function lecture_02() {
   clearBtn.addEventListener("click", reset);
 }
 function lecture_03() {
-  const Parent_img = document.querySelector("#sub_lec_3")
+  const Parent_img = document.querySelector("#sub_lec_3");
   const images = Parent_img.querySelectorAll(".item");
   const Prev = Parent_img.querySelector(".prev");
   const Next = Parent_img.querySelector(".next");
@@ -133,69 +133,68 @@ function lecture_03() {
   Prev.addEventListener("click", moveToPrev);
   Next.addEventListener("click", moveToNext);
 }
-function lecture_04(){
+function lecture_04() {
   const Button = document.querySelector(".open");
   const Container = document.querySelector(".modal-container");
   const Body = document.querySelector("body");
   Button.addEventListener("click", () => {
     Container.classList.add("showed");
     Body.classList.add("overflow");
-  })
-  const Close = document.querySelector(".close")
-  Close.addEventListener("click",()=>{
-    Container.classList.remove("showed")
-    Body.classList.remove("overflow")
-  })
+  });
+  const Close = document.querySelector(".close");
+  Close.addEventListener("click", () => {
+    Container.classList.remove("showed");
+    Body.classList.remove("overflow");
+  });
 }
-function lecture_05(){
-    const buttons = document.querySelectorAll(".rcp");
-    const result = ["가위", "바위", "보"];
-    const computerChoice = document.querySelector(".computer-choice");
-    const userChoice = document.querySelector(".user-choice");
-    const winner = document.querySelector(".block-result");
-    const show = (user, computer, result) => {
-      userChoice.innerText = user;
-      computerChoice.innerText = computer;
-      winner.innerText = result;
-    }
-    const Game = (user, computer) => {
-      let winMessage;
-      if (user == computer) {
-        winMessage = "무승부";
-      } else {
-        switch (user + computer) {
-          // 가위보, 바위가위, 보바위 -> 사용자 윈
-          // 가위바위, 바위보, 보가위 -> 컴퓨터 윈
-          case "가위보":
-          case "바위가위":
-          case "보바위":
-            winMessage = "사용자 승리!";
-            break; // case가 참일때까지 실행
+function lecture_05() {
+  const buttons = document.querySelectorAll(".rcp");
+  const result = ["가위", "바위", "보"];
+  const computerChoice = document.querySelector(".computer-choice");
+  const userChoice = document.querySelector(".user-choice");
+  const winner = document.querySelector(".block-result");
+  const show = (user, computer, result) => {
+    userChoice.innerText = user;
+    computerChoice.innerText = computer;
+    winner.innerText = result;
+  };
+  const Game = (user, computer) => {
+    let winMessage;
+    if (user == computer) {
+      winMessage = "무승부";
+    } else {
+      switch (user + computer) {
+        // 가위보, 바위가위, 보바위 -> 사용자 윈
+        // 가위바위, 바위보, 보가위 -> 컴퓨터 윈
+        case "가위보":
+        case "바위가위":
+        case "보바위":
+          winMessage = "사용자 승리!";
+          break; // case가 참일때까지 실행
 
-          case "가위바위":
-          case "바위보":
-          case "보가위":
-            winMessage = "컴퓨터 승리!";
-            break;
-        }
+        case "가위바위":
+        case "바위보":
+        case "보가위":
+          winMessage = "컴퓨터 승리!";
+          break;
       }
-      show(user, computer, winMessage)
-
     }
-    const play = (event) => {
-      const user = event.target.innerText;
-      const randomIndex = Math.floor(Math.random() * 3);
-      const computer = result[randomIndex];
-      Game(user, computer,result);
-    }
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", play)
-    })
-    //Math.ramdom()*3 표현하고 싶은 숫자 범위 전까지
-    //floor() 함수 정수 밑에 자리는 무조건 버린다.
-    Math.random(Math.random() * 3)
+    show(user, computer, winMessage);
+  };
+  const play = (event) => {
+    const user = event.target.innerText;
+    const randomIndex = Math.floor(Math.random() * 3);
+    const computer = result[randomIndex];
+    Game(user, computer, result);
+  };
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", play);
+  });
+  //Math.ramdom()*3 표현하고 싶은 숫자 범위 전까지
+  //floor() 함수 정수 밑에 자리는 무조건 버린다.
+  Math.random(Math.random() * 3);
 }
-function lecture_06(){
+function lecture_06() {
   const Parent = document.querySelector(".container.todo");
   const Form = Parent.querySelector("form");
   const Input = Parent.querySelector("input");
@@ -251,7 +250,7 @@ function lecture_06(){
   const init = () => {
     // const userTodos = localStorage.getItem("todos");
     const userTodos = JSON.parse(localStorage.getItem("todos"));
-    console.log(userTodos);
+    // console.log(userTodos);
     //객체 형태로 파싱
     if (userTodos) {
       userTodos.forEach((todo) => {
@@ -268,9 +267,9 @@ lecture_02();
 lecture_03();
 lecture_04();
 lecture_05();
-lecture_06()
+lecture_06();
 
-function main_Lec_02(){
+function main_Lec_02() {
   const video = document.querySelector("video");
   const playButton = document.querySelector(".play-pause > span");
   const rateButtons = document.querySelectorAll(".rate");
@@ -279,142 +278,145 @@ function main_Lec_02(){
     const percent = (video.currentTime / video.duration) * 100;
     const progressBar = document.querySelector(".bar");
     progressBar.style.width = `${percent}%`;
-  
+
     if (video.ended) {
       pause();
     }
-  }
+  };
   const formatting = (time) => {
     const Sec = Math.floor(time % 60);
     const Min = Math.floor(time / 60) % 60;
     const Hour = Math.floor(time / 3600);
-  
+
     const fsec = Sec < 10 ? `0${Sec}` : Sec;
     const fmin = Min < 10 ? `0${Min}` : Min;
     const fhour = Hour < 10 ? `0${Hour}` : Hour;
-  
+
     return `${fhour}:${fmin}:${fsec}`;
-  }
+  };
   const updateTime = () => {
     const current = document.querySelector(".current");
     const duration = document.querySelector(".duration"); // duration부분을 계속 업뎃필요없음
     current.innerText = formatting(video.currentTime);
     duration.innerText = formatting(video.duration);
-  }
+  };
   const setVolume = (event) => {
     //0부터 1까지의 값
     video.volume = event.target.value;
-  }
+  };
   const setRate = (event) => {
-    const { rate } = event.target.dataset; // 구조분해할당 ES6 
+    const { rate } = event.target.dataset; // 구조분해할당 ES6
     video.playbackRate = rate;
-  }
-  
+  };
+
   const play = () => {
-    playButton.innerHTML = '||';
+    playButton.innerHTML = "||";
     video.play();
-  }
+  };
   const pause = () => {
-    playButton.innerHTML = '▶';
+    playButton.innerHTML = "▶";
     video.pause();
-  }
-  
+  };
+
   const togglePlay = () => {
     //삼항 연산자 사용
     video.paused ? play() : pause();
-  }
+  };
 
   playButton.addEventListener("click", togglePlay);
   rateButtons.forEach((button) => {
     button.addEventListener("click", setRate);
   });
-  
+
   volumeBar.addEventListener("change", setVolume);
   video.addEventListener("timeupdate", updateTime);
   video.addEventListener("timeupdate", updateProgress);
 }
 
-main_Lec_02()
+main_Lec_02();
 
-function main_Lec_03_1(){
-    const Parent_Draw = document.querySelector("#lecture_3 .sub.sub2:first-child")
-    const canvas = Parent_Draw.querySelector("canvas");
-    const color = Parent_Draw.querySelector("#color");
-    const Width = Parent_Draw.querySelector("#width");
-    const clear = Parent_Draw.querySelector(".clear");
-    const save = Parent_Draw.querySelector(".save");
+function main_Lec_03_1() {
+  const Parent_Draw = document.querySelector(
+    "#lecture_3 .sub.sub2:first-child"
+  );
+  const canvas = Parent_Draw.querySelector("canvas");
+  const color = Parent_Draw.querySelector("#color");
+  const Width = Parent_Draw.querySelector("#width");
+  const clear = Parent_Draw.querySelector(".clear");
+  const save = Parent_Draw.querySelector(".save");
 
-    const ctx = canvas.getContext("2d"); // 그림을 그릴수 있게 된다.
-    ctx.fillStyle = 'white'; // 저장 캔버스 배경 흰색
-    ctx.fillRect(0, 0, canvas.width, canvas.height); // 범위 지정 필요
-    let isPainting = false;
-    let lineWidth = 5;
-        //clear 버튼 관련
-    clear.addEventListener("click", () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      //x,y,캔버스 가로, 캔버스 세로
-    })
-    //컬러값변경
-    color.addEventListener("change", (event) => {
-      // console.log(event.target.value)
-      ctx.strokeStyle = event.target.value;
-    })
+  const ctx = canvas.getContext("2d"); // 그림을 그릴수 있게 된다.
+  ctx.fillStyle = "white"; // 저장 캔버스 배경 흰색
+  ctx.fillRect(0, 0, canvas.width, canvas.height); // 범위 지정 필요
+  let isPainting = false;
+  let lineWidth = 5;
+  //clear 버튼 관련
+  clear.addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //x,y,캔버스 가로, 캔버스 세로
+  });
+  //컬러값변경
+  color.addEventListener("change", (event) => {
+    // console.log(event.target.value)
+    ctx.strokeStyle = event.target.value;
+  });
 
-    //선의 굵기 선택관련 (Width)
-    Width.addEventListener("change", (event) => {
-      lineWidth = event.target.value; // number type 5, 10;
-    })
+  //선의 굵기 선택관련 (Width)
+  Width.addEventListener("change", (event) => {
+    lineWidth = event.target.value; // number type 5, 10;
+  });
 
-    // 마우스 클릭시, 첫 시작
-    canvas.addEventListener("mousedown", (event) => {
-      isPainting = true; // 그림그리고 있는 중을 나타냄  
-      ctx.beginPath(); // 새로운 경로를 생성
-      ctx.moveTo(event.offsetX, event.offsetY);
-      //지정된 위치로 이동
+  // 마우스 클릭시, 첫 시작
+  canvas.addEventListener("mousedown", (event) => {
+    isPainting = true; // 그림그리고 있는 중을 나타냄
+    ctx.beginPath(); // 새로운 경로를 생성
+    ctx.moveTo(event.offsetX, event.offsetY);
+    //지정된 위치로 이동
+  });
 
-    })
-
-    // 마우스로 그릴 때
-    canvas.addEventListener("mousemove", (event) => {
-      // console.log(event);
-      if (!isPainting) {
-        //클릭을 뗏다면 바로 리턴하도록
-        return;
-      }
-      ctx.lineWidth = lineWidth; // 시스템의 linewidth를 전역변수 lineWidth로 지정.
-      ctx.lineCap = 'round'; //선의 끝부분을 지정;
-      ctx.lineTo(event.offsetX, event.offsetY);
-      // 이전경로부터 지정된 경로까지 선을 그리는 메소드 - 실제로 하진 않는다.
-      ctx.stroke(); // 그래서 요게 필요하다.
-    })
-    // 마우스가 캔버스를 벗어나면
-    canvas.addEventListener("mouseout", (event) => {
-      isPainting = false;
-    })
-    // 마우스 클릭 종료
-    canvas.addEventListener("mouseup", (event) => {
-      isPainting = false;
-    })
-    save.addEventListener("click", () => {
-      // 이미지로 저장해주고 콜백함수가 필요하다. 캔버스의 이미지를 의미 = blob
-      canvas.toBlob((blob) => {
-        const a_down = document.createElement("a");
-        a_down.href = URL.createObjectURL(blob);
-        // 특정인지값을 넣어주면 주소로 만들어주는 메소드
-        a_down.download = 'my_drawing.png';
-        a_down.click();
-      })
-    })
+  // 마우스로 그릴 때
+  canvas.addEventListener("mousemove", (event) => {
+    // console.log(event);
+    if (!isPainting) {
+      //클릭을 뗏다면 바로 리턴하도록
+      return;
+    }
+    ctx.lineWidth = lineWidth; // 시스템의 linewidth를 전역변수 lineWidth로 지정.
+    ctx.lineCap = "round"; //선의 끝부분을 지정;
+    ctx.lineTo(event.offsetX, event.offsetY);
+    // 이전경로부터 지정된 경로까지 선을 그리는 메소드 - 실제로 하진 않는다.
+    ctx.stroke(); // 그래서 요게 필요하다.
+  });
+  // 마우스가 캔버스를 벗어나면
+  canvas.addEventListener("mouseout", (event) => {
+    isPainting = false;
+  });
+  // 마우스 클릭 종료
+  canvas.addEventListener("mouseup", (event) => {
+    isPainting = false;
+  });
+  save.addEventListener("click", () => {
+    // 이미지로 저장해주고 콜백함수가 필요하다. 캔버스의 이미지를 의미 = blob
+    canvas.toBlob((blob) => {
+      const a_down = document.createElement("a");
+      a_down.href = URL.createObjectURL(blob);
+      // 특정인지값을 넣어주면 주소로 만들어주는 메소드
+      a_down.download = "my_drawing.png";
+      a_down.click();
+    });
+  });
 }
-function main_Lec_03_2(){
-  const Parent_Draw2 = document.querySelector("#lecture_3 .sub.sub2:last-child")
+function main_Lec_03_2() {
+  const Parent_Draw2 = document.querySelector(
+    "#lecture_3 .sub.sub2:last-child"
+  );
   const canvas = Parent_Draw2.querySelector("canvas");
   const imageFile = Parent_Draw2.querySelector("#image-file");
   const ctx = canvas.getContext("2d");
   const textInputs = Parent_Draw2.querySelectorAll(".text");
   const topTextInput = Parent_Draw2.querySelector("#top-text");
   const bottomTextInput = Parent_Draw2.querySelector("#bottom-text");
-  
+
   let image;
   let width;
   let height;
@@ -424,45 +426,45 @@ function main_Lec_03_2(){
     textInputs.forEach((input) => {
       input.style.display = "flex";
     });
-  }
+  };
   const uploadImage = () => {
     width = image.width;
     height = image.height;
-  
+
     canvas.width = width;
     canvas.height = height;
-  
+
     ctx.drawImage(image, 50, 50);
     // 그림 그릴 이미지를 넘겨준다.
     showInputs();
-  }
+  };
   const createImage = (event) => {
-    const imgURL = URL.createObjectURL(event.target.files[0])
+    const imgURL = URL.createObjectURL(event.target.files[0]);
     // console.log(event.target.files[0]);
     image = document.createElement("img");
     image.src = imgURL;
     image.addEventListener("load", uploadImage);
-  }
+  };
   const drawText = () => {
     const offsetY = height / 20;
     const fontSize = height / 10;
-  
+
     ctx.font = `${fontSize}px sans-serif`;
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
     ctx.strokeStyle = "black";
     ctx.lineWidth = fontSize / 5;
     ctx.lineJoin = "round";
-  
+
     ctx.textBaseline = "top";
-    ctx.strokeText(top_text, width / 2, offsetY); 
-  // 반드시 이거부터!!!해야 우리 의도되로 된다. 아니면 자동으로 그려주지 않는다.
+    ctx.strokeText(top_text, width / 2, offsetY);
+    // 반드시 이거부터!!!해야 우리 의도되로 된다. 아니면 자동으로 그려주지 않는다.
     ctx.fillText(top_text, width / 2, offsetY);
-  
+
     ctx.textBaseline = "bottom";
     ctx.strokeText(bottom_text, width / 2, height - offsetY);
     ctx.fillText(bottom_text, width / 2, height - offsetY);
-  }
+  };
   const updateText_top = (event) => {
     top_text = event.target.value;
     drawText();
@@ -472,9 +474,8 @@ function main_Lec_03_2(){
     drawText();
   };
   imageFile.addEventListener("change", createImage);
-  topTextInput.addEventListener("change",  updateText_top) 
-  bottomTextInput.addEventListener("change", updateText_bottom)
+  topTextInput.addEventListener("change", updateText_top);
+  bottomTextInput.addEventListener("change", updateText_bottom);
 }
-main_Lec_03_1()
-main_Lec_03_2()
-
+main_Lec_03_1();
+main_Lec_03_2();

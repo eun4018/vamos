@@ -287,7 +287,7 @@ header {
   opacity: 1;
   transition: all 0.5s;
 }
-#sub_lec_4 .modal-container.showed{
+#sub_lec_4 .modal-container.showed {
   display: flex;
   opacity: 1;
 }
@@ -482,12 +482,12 @@ header {
   cursor: pointer;
 }
 /* #lecture_3*/
-#lecture_3  .sub-lecture  > .sub.sub2:first-child  > .container {
+#lecture_3 .sub-lecture > .sub.sub2:first-child > .container {
   display: flex;
   flex-direction: column;
   filter: drop-shadow(10px 20px 20px hsl(0deg 0% 0% / 0.1));
 }
-#lecture_3  .sub-lecture  > .sub.sub2:first-child  > .container  > .menu {
+#lecture_3 .sub-lecture > .sub.sub2:first-child > .container > .menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -496,21 +496,21 @@ header {
   background-color: var(--black);
 }
 
-#lecture_3  .sub-lecture  > .sub.sub2:first-child  > .container >  .menu > .item {
+#lecture_3 .sub-lecture > .sub.sub2:first-child > .container > .menu > .item {
   display: flex;
   align-items: center;
   color: var(--white);
   column-gap: 10px;
 }
 
-#lecture_3  .sub-lecture  > .sub.sub2:first-child  > .container  >  input {
+#lecture_3 .sub-lecture > .sub.sub2:first-child > .container > input {
   width: 50px;
   height: 30px;
   padding: 0;
   text-align: center;
 }
 
-#lecture_3  .sub-lecture  > .sub.sub2:first-child  > .container  > button {
+#lecture_3 .sub-lecture > .sub.sub2:first-child > .container > button {
   width: auto;
   height: 35px;
   padding: 0 15px;
@@ -521,40 +521,40 @@ header {
   cursor: pointer;
 }
 
-#lecture_3  .sub-lecture  > .sub.sub2:first-child  > .container  > canvas {
+#lecture_3 .sub-lecture > .sub.sub2:first-child > .container > canvas {
   background-color: white;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
 
-#lecture_3  .sub-lecture  > .sub.sub2:last-child   > .inner {
+#lecture_3 .sub-lecture > .sub.sub2:last-child > .inner {
   width: 100%;
   margin: 0 1vw;
 }
 
-#lecture_3  .sub-lecture  > .sub.sub2:last-child  > .inner > h1 {
+#lecture_3 .sub-lecture > .sub.sub2:last-child > .inner > h1 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-#lecture_3  .sub-lecture  > .sub.sub2:last-child  > .inner > .item {
+#lecture_3 .sub-lecture > .sub.sub2:last-child > .inner > .item {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
 }
 
-#lecture_3  .sub-lecture  > .sub.sub2:last-child   > .inner  > input {
+#lecture_3 .sub-lecture > .sub.sub2:last-child > .inner > input {
   width: 100%;
   margin: 0;
   padding: 10px;
 }
 
-#lecture_3  .sub-lecture  > .sub.sub2:last-child   > .inner  >.text {
+#lecture_3 .sub-lecture > .sub.sub2:last-child > .inner > .text {
   display: none;
 }
 /* #lecture_4*/
-#lecture_4 > .sub-lecture{
-  height:720px;
+#lecture_4 > .sub-lecture {
+  height: 720px;
 }
 #lecture_4 .container {
   padding-top: 30px;
@@ -567,25 +567,25 @@ header {
   font-size: 1.5rem;
 }
 
-#lecture_4 .container  button {
+#lecture_4 .container button {
   width: 100%;
   background-color: var(--blue);
   color: var(--white);
   border: 0;
   padding: 10px;
   border-radius: 5px;
-  font-family: 'LeeSeoyun', sans-serif;
+  font-family: "LeeSeoyun", sans-serif;
   font-size: 1.5rem;
 }
 
-#lecture_4 .container  ul {
+#lecture_4 .container ul {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
   width: 100%;
 }
 
-#lecture_4 .container  ul > li > label {
+#lecture_4 .container ul > li > label {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -597,12 +597,12 @@ header {
   border-radius: 15px;
 }
 
-#lecture_4 .sort-buttons{
-  display:flex;
-  width:100%;
+#lecture_4 .sort-buttons {
+  display: flex;
+  width: 100%;
 }
-#lecture_4 .descending{
-  margin-left:10px;
+#lecture_4 .descending {
+  margin-left: 10px;
 }
 #lecture_4 .container .name {
   font-size: 160%;
@@ -612,13 +612,13 @@ header {
   font-size: 85%;
   color: var(--red);
 }
-#lecture_4 .container  select {
+#lecture_4 .container select {
   width: 100%;
   padding: 10px;
   border: none;
   outline: none;
   background-color: var(--white);
-  font-family: 'LeeSeoyun', sans-serif;
+  font-family: "LeeSeoyun", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -631,7 +631,7 @@ header {
   color: var(--blue);
 }
 
-#lecture_4 .container  input[type='checkbox'] {
+#lecture_4 .container input[type="checkbox"] {
   width: 15px;
   height: 15px;
 }
@@ -713,6 +713,65 @@ header {
   color: #fff;
   margin-top: 10px;
 }
+
+/* #lecture_6*/
+#weather {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#weather > .container {
+  width: 300px;
+  height: 300px;
+  color: white;
+  background-color: var(--blue);
+  border-radius: 8px;
+  filter: drop-shadow(8px 12px 12px hsl(0deg 0% 0% / 0.5));
+  margin: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+
+#weather > .container > .current-weather {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+}
+
+#weather > .container > .current-weather .temp {
+  font-weight: bold;
+  font-size: 300%;
+}
+
+#weather > .container > .current-weather .info {
+  display: flex;
+  column-gap: 10px;
+}
+
+#weather > .container > .current-weather img {
+  margin: 0;
+  padding: 0;
+  background-color: var(--black);
+  border-radius: 100%;
+}
+
+#weather > .noti {
+  display: none;
+  margin-bottom: 20px;
+  color: var(--red);
+  font-weight: bold;
+  font-size: 120%;
+  text-align: center;
+  line-height: 160%;
+}
+/* #lecture_7*/
+
 /*미디어 쿼리*/
 @media screen and (max-width: 60rem) {
   .container .list-box > ul {
@@ -738,7 +797,7 @@ header {
     display: flex;
     align-items: center;
     height: 4vh;
-    min-width:20vw;
+    min-width: 20vw;
   }
   #lecture_5 > .sub-lecture > .container > .blocks {
     display: flex;
