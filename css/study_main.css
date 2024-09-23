@@ -771,7 +771,112 @@ header {
   line-height: 160%;
 }
 /* #lecture_7*/
+#lecture_7 {
+  flex: initial;
+}
+#lecture_7 > .container > .header {
+  color: var(--white);
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background-color: var(--black);
+  position: sticky;
+  top: 0;
+}
+#lecture_7 > .container > .header form {
+  width: 40%;
+}
+#lecture_7 > .container > .header input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  width: 100%;
+}
 
+#lecture_7 > .container .contents {
+  flex: 1;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+#lecture_7 > .container .movie {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+#lecture_7 > .container .movie img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+#lecture_7 > .container .detail {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 1rem;
+}
+
+#lecture_7 > .container .detail h3 {
+  font-size: 18px;
+}
+
+#lecture_7 > .container .info {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  font-size: 14px;
+}
+/* #lecture_8 */
+#lecture_8 a {
+  color: #1da1f2;
+  text-decoration: none;
+}
+
+#lecture_8 a:hover {
+  color: var(--blue);
+}
+
+#lecture_8 .container {
+  width: 550px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+  background-color: var(--blue);
+}
+
+#lecture_8 .feed {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+#lecture_8 .post,
+#lecture_8 .profile {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 15px 10px -12px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+#lecture_8 .profile {
+  align-items: center;
+  font-size: 150%;
+}
 /*미디어 쿼리*/
 @media screen and (max-width: 60rem) {
   .container .list-box > ul {
