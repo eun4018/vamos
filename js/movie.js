@@ -87,3 +87,4 @@ const getPopularMovies = () => {
 };
 getPopularMovies();
 form.addEventListener("submit", searchMovie);
+history.pushState("", "", "/study_main.html");
