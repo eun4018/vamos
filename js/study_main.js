@@ -64,3 +64,5 @@ const sub_menu2 = (e) => {
   });
 };
 sub_menu2();
+
+history.pushState("", "", "/study_main.html");
