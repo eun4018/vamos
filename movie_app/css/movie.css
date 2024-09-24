@@ -1,0 +1,75 @@
+:root {
+  --white: #ecf0f1;
+  --black: #2f3640;
+  --red: #e74c3c;
+  --blue: #3a99d8;
+  --darkblue: #256c9b;
+  --yellow: #fdef52;
+  --grey: #343436;
+  --navy: #34495e;
+  --purple: #8e44ad;
+  --green: #16a085;
+  --orange: #e67e22;
+}
+.container > .header {
+  color: var(--white);
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background-color: var(--black);
+  position: sticky;
+  top: 0;
+}
+.container > .header form {
+  width: 40%;
+}
+.container > .header input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+.container .contents {
+  flex: 1;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.container .movie {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.container .movie img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.container .detail {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 1rem;
+}
+
+.container .detail h3 {
+  font-size: 18px;
+}
+
+.container .info {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  font-size: 14px;
+}

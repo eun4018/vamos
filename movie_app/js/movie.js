@@ -1,4 +1,4 @@
-import { MV_API } from "./envy.js";
+import { MV_API } from "../../js/envy.js";
 const form = document.querySelector("form");
 
 const removeAll = () => {
@@ -87,4 +87,3 @@ const getPopularMovies = () => {
 };
 getPopularMovies();
 form.addEventListener("submit", searchMovie);
-history.pushState("", "", "/study_main.html");
