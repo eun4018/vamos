@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<!--crossorigin 현재 문서와 다른 호스트에서 스크립트를 불러올 때 해당 스크립트를 어떻게 다룰 것인지 설정하는 속성-->
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!--react의 몸통같은 역활 React element들을 HTML body에 둘수 있도록 해준다.-->
+<script type="text/babel">
+  // Javascript -> React JS -> HTML 
+  // props 리액트에서는 하나의 컴포넌트에서 다른 컴포넌트로 데이터를 전달
+  // 부모 컴포넌트로부터 자식 컴포넌트에 데이터를 보낼 수 있게 해줌
+  //분할과 정복(Divide and Conquer) : 문제를 나눌 수 없을 때까지 나누고, 각각을 풀면서 다시 병합하여 문제의 답을 얻는 알고리즘
+  // 컴포넌트는 단지 함수다! jsx를 반환하는, props === 첫번째이자 유일한 인자
+  // props, button 내부에 {props.text}
+  // 이곳의 onClick 은 EventListener
+  function Btn({text, changeValue}) {
+    console.log(text, "was rendered")
+    return <button
+      onClick={changeValue}
+      style={{
+        backgroundColor: "tomato",
+        color: "white",
+        padding: "10px 20px",
+        border: 0,
+        borderRadius: 10,
+      }}>{prop.text}</button>
+  }
+  const MemorizeBtn = React.memo(Btn)
+  function App() {
+    const [value, setValue] = React.useState("Save Changes")
+    const changeValue = () => setValue("Revert Changes")
+    return (
+      <div>
+        <MemorizeBtn text={value} changeValue={changeValue} />
+        <MemorizeBtn text="Continue" />
+      </div>
+    )
+  }
+  //ternary operator 삼항 연산자
+  // <Btn text={value} onClick={ChangeValue}/> onClick 이벤트가 아니다.
+  // 하나의 Props 임.style도 줄수 없다!
+  // 컴퍼넌트가 React.memo()로 래핑 될 때, React는 컴퍼넌트를 렌더링하고 결과를 메모이징
+  //(Memoizing)한다. 그리고 다음 렌더링이 일어날 때 props가 같다면, 
+  //React는 메모이징(Memoizing)된 내용을 재사용 한다.
+  const root = document.getElementById("root");
+  ReactDOM.render(<App />, root)
+  //사용자에게 보여주는 역할
+</script>
+
+</html>
