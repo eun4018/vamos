@@ -5,9 +5,8 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <App />
-  </React.StrictMode>
 );
 
 
+{/* <React.StrictMode></React.StrictMode> -> creat-react-app로 설치했을 때 기본적으로 생성되는 태그 */}
