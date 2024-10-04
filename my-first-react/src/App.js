@@ -1,25 +1,31 @@
-import { useState, useEffect } from "react";
-function Hello(){
-  useEffect(()=>{
-    console.log("hi :)")
-    return () => console.log("bye:(");
-  },[])
-  // useEffect(function(){
-  //   console.log("hi :)") 
-  //   return function(){
-  //     console.log("bye :(")
-  //   }
-  // },[])
-  return <h1>Hello</h1>
-}
+import { useState } from "react";
 function App() {
-  const [showing, setShowing] = useState(false);
-  const onClick = () => setShowing((prev) => !prev)
+  //useState를 직접적으로 수정하지 않는다! 
+  const [todo, setTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+  const onChange = (event) => setTodo(event.target.value);
+  const onSubmit = (event) => {
+    event.preventDefault()
+    if(todo===""){
+      return;
+    }
+    setTodo("")
+    // 직전의 값을 받아온다. previous function
+    setTodos(currentArray => [todo, ... currentArray])
+  }
+  console.log(todos)
   return (
-    //javascript를 부를땐 {} 표시
     <div>
-      {showing ? <Hello/> : null}
-      <button onClick = {onClick}>{showing? "Hide" : "Show"}</button>
+      <h1>My To Dos ({todos.length})</h1>
+      <form onSubmit={onSubmit}>
+          <input
+            onChange={onChange}
+            value={todo}
+            type="text"
+            placeholder="write your to do..."
+          />
+          <button>Add To Do</button>
+      </form>
     </div>
   );
 }
