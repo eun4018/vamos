@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 function Detail() {
-  const { id } = useParams();
+  const { id } = useParams(); //구조분해 할당
   const [loading, setLoading] = useState(true);
   const [movie, setMovie] = useState([]);
   const [genres, setGenres] = useState([]);
@@ -9,6 +9,7 @@ function Detail() {
     const json = await (
       await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
     ).json();
+    //async는 함수의 앞에 붙여서 해당 함수가 비동기 함수임을 나타내며, await는 비동기 함수의 실행 결과를 기다리는 키워드
     console.log(json);
     setLoading((current) => !current);
     setGenres(json.data.movie.genres);
